@@ -65,18 +65,16 @@
 
 		// Need a function that will listen for events on the checkbox. So get that and see if you can figure out if the box is checked or not. 
 
-		console.log('starting script');
 		let checkBox = document.querySelector('#show-password');
-		console.log('printing checkbox we got');
-				console.log(checkBox);
-
+		let pwField = document.querySelector ('#password');
+		
 		checkBox.addEventListener('change', function (event) {
 			console.log('in event listener');
-			if (event.checked) {
-					console.log('checked');
+			if (checkBox.checked) {
+				pwField.type = 'text';
 			}
 			else {
-				console.log('not checked');
+				pwField.type = 'password';
 			}
 		});
 
