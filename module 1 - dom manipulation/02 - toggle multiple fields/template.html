@@ -63,17 +63,17 @@
 			let passwords = document.querySelectorAll('[type="password"]');
 		
 		checkBox.addEventListener('click', function (event) {
-			if (checkBox.checked) {
-				for (password of passwords) {
-							password.type = 'text';
+
+			// Loop through and if checked make of type text, if not make of type password
+
+			 for (let password of passwords) {
+				if (checkBox.checked) {
+					password.type = 'text';
+				} else {
+						password.type = 'password';
+					}
 				}
-			}
-			else {
-				for (passsword	of passwords) {
-							password.type = 'password';
-						}
-			}
-				});
+ 				});
 
 		</script>
 	</body>
