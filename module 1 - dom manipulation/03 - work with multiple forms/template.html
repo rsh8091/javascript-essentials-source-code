@@ -35,7 +35,7 @@
 
 		<p>Enter your username and password to change your username.</p>
 
-		<form>
+		<form id="form1">
 			<div>
 				<label for="username">Username</label>
 				<input type="text" name="username" id="username">
@@ -62,7 +62,7 @@
 
 		<p>Enter your current password and new password below.</p>
 
-		<form>
+		<form id="form2">
 			<div>
 				<label for="current-password">Current Password</label>
 				<input type="password" name="current-password" id="current-password">
@@ -87,6 +87,49 @@
 
 		<script>
 			// Your code goes here...
+
+			let form2 = document.querySelector('#form2');
+let form1 = document.querySelector('#form1');
+let form2pws = form2.querySelectorAll('[type="password"]');
+let form1pws = form1.querySelectorAll('[type="password"]');
+
+
+			// Create function to turn password types to whatever you want
+
+
+			function changeFields (fields, type) {
+				console.log('in change function');
+				for (let field of fields) {
+					field.type = type;
+				}
+			}
+
+			// Naive implementation is to just put an event listener on each checkbox and resue what we had before.
+			// Better solution is to listen at the document level for checkbox events and then change form fields accordingly. Though even then we have some repeat code, but let's ee if we can do that right.
+
+			document.addEventListener ('click', function (event) {
+
+				let elem = event.target;
+				if (elem.id === 'show-password' ) {
+					if (elem.checked) {
+						console.log('box checked');
+						changeFields(form1pws, 'text');
+					} else {
+						changeFields (form1pws, 'password');
+					}
+				}
+			else	if (elem.id === 'show-passwords' ) {
+				if (elem.checked) {
+						console.log('box 2 checked');
+						changeFields(form2pws, 'text');
+					} else {
+						changeFields (form2pws, 'password');
+					}
+				}
+			});
+
+
+
 		</script>
 	</body>
 </html>
