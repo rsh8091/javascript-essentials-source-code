@@ -104,7 +104,7 @@ let form1pws = form1.querySelectorAll('[type="password"]');
 				}
 			}
 
-			// Naive implementation is to just put an event listener on each checkbox and resue what we had before.
+			// Naive implementation is to just put an event listener on each checkbox and reusue what we had before.
 			// Better solution is to listen at the document level for checkbox events and then change form fields accordingly. Though even then we have some repeat code, but let's ee if we can do that right.
 
 			document.addEventListener ('click', function (event) {

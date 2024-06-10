@@ -34,6 +34,19 @@
 
 		<script>
 			// Your code goes here...
+
+			// Need an event listener to listen for the right even on the text area.
+
+			let text = document.querySelector('#text');
+			let charCount = document.querySelector('#character-count');
+		
+
+	
+			text.addEventListener('input', function(event) {
+
+
+			charCount.innerText = text.value.length;
+			});
 		</script>
 	</body>
 </html>
